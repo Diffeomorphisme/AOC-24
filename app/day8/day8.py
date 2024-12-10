@@ -1,6 +1,3 @@
-import re
-
-
 def read_file():
 	with open("day8/input.txt", "r") as file:
 		return file.read()

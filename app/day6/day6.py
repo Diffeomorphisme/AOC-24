@@ -107,7 +107,6 @@ def second_part():
 		position_records[character] = [">"]
 	while True:
 		next_position = character
-		print(position_records)
 		if up:
 			next_position = (character[0] - 1, character[1])
 			if next_position in obstacles:
@@ -119,13 +118,13 @@ def second_part():
 					position_records[character].append(">")
 				continue
 
-			for i in range(next_position[1], number_columns):
-				if (next_position[0], i) in obstacles:
+			for i in range(character[1], number_columns):
+				if (character[0], i) in obstacles:
 					break
-				if ">" in position_records.get((next_position[0], i), []):
+				if ">" in position_records.get((character[0], i), []):
 					total += 1
 					print(">")
-					print(next_position)
+					print(character)
 					break
 			if not position_records.get(next_position, []):
 				position_records[next_position] = ["^"]
@@ -143,13 +142,13 @@ def second_part():
 					position_records[character].append("<")
 				continue
 
-			for i in range(next_position[1], 0, -1):
-				if (next_position[0], i) in obstacles:
+			for i in range(character[1], 0, -1):
+				if (character[0], i) in obstacles:
 					break
-				if "<" in position_records.get((next_position[0], i), []):
+				if "<" in position_records.get((character[0], i), []):
 					total += 1
 					print("<")
-					print(next_position)
+					print(character)
 					break
 			if not position_records.get(next_position, []):
 				position_records[next_position] = ["v"]
@@ -167,13 +166,13 @@ def second_part():
 					position_records[character].append("v")
 				continue
 
-			for i in range(next_position[0], number_lines):
-				if (i, next_position[1]) in obstacles:
+			for i in range(character[0], number_lines):
+				if (i, character[1]) in obstacles:
 					break
-				if "v" in position_records.get((i, next_position[1]), []):
+				if "v" in position_records.get((i, character[1]), []):
 					total += 1
 					print("v")
-					print(next_position)
+					print(character)
 					break
 			if not position_records.get(next_position, []):
 				position_records[next_position] = [">"]
@@ -191,13 +190,13 @@ def second_part():
 					position_records[character].append("^")
 				continue
 
-			for i in range(next_position[0], 0, -1):
-				if (i, next_position[1]) in obstacles:
+			for i in range(character[0], 0, -1):
+				if (i, character[1]) in obstacles:
 					break
-				if "^" in position_records.get((i, next_position[1]), []):
+				if "^" in position_records.get((i, character[1]), []):
 					total += 1
 					print("^")
-					print(next_position)
+					print(character)
 					break
 			if not position_records.get(next_position, []):
 				position_records[next_position] = ["<"]
